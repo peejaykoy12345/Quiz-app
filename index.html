@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Quiz App</h1>
+    </header>
+    <button onclick="startQuiz()">Start Quiz</button>
+    <div id="scorePopup" class="scorePopup">
+        <h2>Quiz Completed!</h2>
+        <p>Your score: <span id="score"></span></p>
+        <button onclick="closeScore()">Close</button>
+        <button onclick="resetQuiz()">Restart Quiz</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
