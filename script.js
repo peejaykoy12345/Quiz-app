@@ -1,5 +1,6 @@
 let counter = 0;
 let score = 0;
+let start = false;
 
 function createQuestion(question, options, correctIndex) {
     let questionContainer = document.getElementById("questionContainer");
@@ -51,13 +52,20 @@ function createQuestion(question, options, correctIndex) {
 }
 
 function startQuiz() {
-    counter = 0;
-    score = 0;
-    let questionContainer = document.getElementById("questionContainer");
-    questionContainer = document.createElement("div");
-    questionContainer.id = "questionContainer";
-    document.body.appendChild(questionContainer); 
-    quiz();
+    if (!start) {
+        counter = 0;
+        score = 0;
+        let questionContainer = document.getElementById("questionContainer");
+        questionContainer = document.createElement("div");
+        questionContainer.id = "questionContainer";
+        document.body.appendChild(questionContainer); 
+        start = true;
+        quiz();
+        
+    }
+    else {
+        alert("Quiz already started!");
+    }
 }
 
 function quiz() {
@@ -85,12 +93,14 @@ function setScore() {
 function closeScore() {
     let popup = document.getElementById("scorePopup");
     popup.style.display = "none";
-    clearQuestion(); 
+    clearQuestion();
+    start = false; 
 }
 
 function resetQuiz() {
     counter = 0;
     score = 0;
+    start = false
     closeScore();
     startQuiz();
 }
